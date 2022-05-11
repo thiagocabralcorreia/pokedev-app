@@ -12,7 +12,15 @@ export const Routes: React.FC = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName='ListScreen'>
-				<Stack.Screen name='ListScreen' component={ListScreen} />
+				<Stack.Screen
+					options={{
+						title: '',
+						headerTransparent: true,
+						headerShown: false
+					}}
+					name='ListScreen'
+					component={ListScreen}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
   );

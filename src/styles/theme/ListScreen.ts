@@ -18,7 +18,7 @@ export const Item = styled.TouchableOpacity`
 	justify-content: space-between;
 	height: 56px;
 	width: ${Dimensions.get('window').width - 40}px;
-    border-bottom-width: 1px;
+    border-bottom-width: 0.5px;
 	border-bottom-color: ${colors.grey};
 `;
 
