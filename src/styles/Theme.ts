@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
-import {colors} from './theme/colors';
-import {txt} from './theme/typography';
+import { colors } from './theme/colors';
+import { txt } from './theme/typography';
 
 export const StyledSafeAreaView = styled.SafeAreaView`
 	flex: 1;
