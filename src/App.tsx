@@ -4,19 +4,13 @@ import { colors } from './styles/theme/colors';
 
 import { Routes } from './routes';
 
-import { StyledSafeAreaView, TopBar, AppName, TitleBar, Title } from './styles/Theme';
+import { StyledSafeAreaView } from './styles/Theme';
 
 const App = () => {
 	return (
 		<>
 			<StatusBar backgroundColor={colors.complementary} />
 			<StyledSafeAreaView>
-				<TopBar>
-					<AppName>PokeDev</AppName>
-				</TopBar>
-				<TitleBar>
-					<Title>Lista de Pokémons</Title>
-				</TitleBar>
 				<Routes />
 			</StyledSafeAreaView>
 		</>

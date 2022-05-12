@@ -6,27 +6,28 @@ import React from 'react';
 import { ListScreen } from './screens/ListScreen';
 import { DetailScreen } from './screens/DetailScreen';
 
+import { colors } from './styles/theme/colors';
+import { AppBar, AppName } from './styles/Theme';
+
 const Stack = createNativeStackNavigator();
+
+export type RootStackParamList = {
+	ListScreen: undefined;
+	DetailScreen: undefined;
+};
 
 export const Routes: React.FC = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName='DetailScreen'>
+			<Stack.Navigator
+				initialRouteName='ListScreen'
+				screenOptions={{headerShown: false}}
+			>
 				<Stack.Screen
-					options={{
-						title: '',
-						headerTransparent: true,
-						headerShown: false
-					}}
 					name='ListScreen'
 					component={ListScreen}
 				/>
 				<Stack.Screen
-					options={{
-						title: '',
-						headerTransparent: true,
-						headerShown: false
-					}}
 					name='DetailScreen'
 					component={DetailScreen}
 				/>

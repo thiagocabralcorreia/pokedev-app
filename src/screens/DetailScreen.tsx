@@ -2,6 +2,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useRoute } from '@react-navigation/native'
+
+import { Header } from '../components/Header';
 
 import {
 	Container,
@@ -16,7 +19,11 @@ import {
 } from '../styles/theme/DetailScreen';
 
 export const DetailScreen = () =>{
+	// currentScreen = useRoute();
+
 	return (
+		<>
+		<Header title='Detalhes do Pokémon' backButton/>
 		<Container>
 			<ScrollView>
 				<MainDetails>
@@ -54,5 +61,6 @@ export const DetailScreen = () =>{
 				</MovementRow>
 			</ScrollView>
 		</Container>
+		</>
 	);
 };
