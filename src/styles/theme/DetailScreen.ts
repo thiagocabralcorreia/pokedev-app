@@ -12,10 +12,9 @@ export const Container = styled.View`
 export const MainDetails = styled.View`
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 32px;
 `;
 
-export const ImageWrapper = styled.View`
+export const Sprite = styled.Image`
 	width: 96px;
 	height: 96px;
 	border-width: 1px;
@@ -23,6 +22,7 @@ export const ImageWrapper = styled.View`
 	border-color: ${colors.grey.dark};
 	margin-right: 13px;
 `;
+
 
 export const Title = styled.Text`
 	font-size: ${txt.size.extraSmall};
@@ -35,25 +35,34 @@ export const Name = styled.Text`
 	color: ${colors.black};
 `;
 
-export const Ability = styled.Text`
+export const AbilityName = styled.Text`
 	font-size: ${txt.size.regular};
 	color: ${colors.black};
-	margin-bottom: 32px;
+	margin-bottom: 2px;
 `;
 
-export const MovementRow = styled.View`
+export const Span = styled.Text`
+	font-size: ${txt.size.regular};
+	color: ${colors.black};
+`;
+
+export const TypeWrapper = styled.View`
+	margin-top: 32px;
+`;
+
+export const Row = styled.View`
 	flex-direction: row;
 	flex-wrap: wrap;
 `;
 
 export const Retangle = styled.View`
-	border-radius: 10px;
+	border-radius: 5px;
 	background-color: ${colors.grey.light};
-	padding: 2px 12px;
+	padding: 5px 12px;
 	margin: 0 6px 14px 0;
 `;
 
-export const Movement = styled.Text`
+export const MoveName = styled.Text`
 	font-size: ${txt.size.regular};
 	color: ${colors.black};
 `;

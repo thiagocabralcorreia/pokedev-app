@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack';
 import axios from 'axios';
 
-import { useNavigation, useRoute } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack';
+import { api } from '../services/api';
 import { RootStackParamList } from '../routes';
 import { Header } from '../components/Header';
 
@@ -12,7 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { colors } from '../styles/theme/colors';
 import { Container, Item, Name } from '../styles/theme/ListScreen';
 
-interface PokemonSchema {
+interface PokemonListSchema {
 	name: string;
 }
 
@@ -20,9 +21,8 @@ type listScreen = StackNavigationProp<RootStackParamList, 'ListScreen'>;
 
 export const ListScreen = () =>{
 	const navigation = useNavigation<listScreen>();
-	// currentScreen = useRoute();
 
-	const url = 'https://pokeapi.co/api/v2/pokemon?limit=20';
+	const url = `${api}?limit=20`;
 	const [ pokemonList, setPokemonList ] = useState([]);
 
 	const getData = async () => {
@@ -43,7 +43,7 @@ export const ListScreen = () =>{
 			<Header title='Lista de Pokémons' />
 			<Container>
 				<ScrollView>
-					{pokemonList.map(( pokemon: PokemonSchema ) => {
+					{pokemonList.map(( pokemon: PokemonListSchema ) => {
 						return (
 							<Item
 								key={pokemon.name}

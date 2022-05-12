@@ -1,25 +1,59 @@
 
-import React from 'react';
-import { View } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useRoute } from '@react-navigation/native'
+import { View } from 'react-native';
+import axios from 'axios';
 
+import { api } from '../services/api';
 import { Header } from '../components/Header';
 
 import {
 	Container,
 	MainDetails,
-	ImageWrapper,
+	Sprite,
 	Title,
 	Name,
-	Ability,
-	MovementRow,
+	Row,
+	AbilityName,
+	Span,
 	Retangle,
-	Movement,
+	MoveName,
+	TypeWrapper,
 } from '../styles/theme/DetailScreen';
 
+interface PokemonSchema {
+	name?: string;
+	sprites?: {
+		front_default?: string;
+	}
+	abilities?: [{
+		ability?: {
+			name?: string;
+		}
+	}];
+	moves?: [{
+		move?: {
+			name?: string;
+		}
+	}];
+}
+
 export const DetailScreen = () =>{
-	// currentScreen = useRoute();
+	const url = `${api}/1/`;
+	const [ pokemonData, setPokemonData ] = useState<PokemonSchema>({});
+
+	const getData = async () => {
+		try {
+			const { data } = await axios.get(url);
+			setPokemonData(data);
+		} catch(error) {
+			alert(error.message);
+		}
+	}
+
+	useEffect(() => {
+		getData()
+	}, []);
 
 	return (
 		<>
@@ -27,38 +61,36 @@ export const DetailScreen = () =>{
 		<Container>
 			<ScrollView>
 				<MainDetails>
-					<ImageWrapper />
+					<Sprite source={{uri: pokemonData?.sprites?.front_default}} />
 					<View>
 						<Title>Nome:</Title>
-						<Name>bulbasaur</Name>
+						<Name>{pokemonData.name}</Name>
 					</View>
 				</MainDetails>
-				<Title>Habilidades:</Title>
-				<Ability>chlorophyll | overgrow</Ability>
+				<TypeWrapper>
+					<Title>Habilidades:</Title>
+					<Row>
+						{pokemonData?.abilities?.map((item, index) => {
+							return (
+								<AbilityName key={index}>
+									{item.ability.name} <Span> | </Span>
+								</AbilityName>
+							)
+						})}
+					</Row>
+				</TypeWrapper>
+				<TypeWrapper>
 				<Title>Movimentos:</Title>
-				<MovementRow>
-					<Retangle>
-						<Movement>razor-wind</Movement>
-					</Retangle>
-					<Retangle>
-						<Movement>cut</Movement>
-					</Retangle>
-					<Retangle>
-						<Movement>vine-whip</Movement>
-					</Retangle>
-					<Retangle>
-						<Movement>bind</Movement>
-					</Retangle>
-					<Retangle>
-						<Movement>cut</Movement>
-					</Retangle>
-					<Retangle>
-						<Movement>razor-wind</Movement>
-					</Retangle>
-					<Retangle>
-						<Movement>cut</Movement>
-					</Retangle>
-				</MovementRow>
+					<Row>
+						{pokemonData?.moves?.map((item, index) => {
+							return (
+								<Retangle key={index}>
+									<MoveName>{item.move.name}</MoveName>
+								</Retangle>
+							)
+						})}
+					</Row>
+				</TypeWrapper>
 			</ScrollView>
 		</Container>
 		</>
