@@ -19,7 +19,7 @@ export const Item = styled.TouchableOpacity`
 	height: 56px;
 	width: ${Dimensions.get('window').width - 40}px;
     border-bottom-width: 0.5px;
-	border-bottom-color: ${colors.grey};
+	border-bottom-color: ${colors.grey.dark};
 `;
 
 export const Name = styled.Text`
