@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { View } from 'react-native';
 import axios from 'axios';
 
-import { api } from '../services/api';
+import { useURL } from '../context/url.context';
 import { Header } from '../components/Header';
 
 import {
@@ -39,12 +39,12 @@ interface PokemonSchema {
 }
 
 export const DetailScreen = () =>{
-	const url = `${api}/1/`;
 	const [ pokemonData, setPokemonData ] = useState<PokemonSchema>({});
+	const { currentURL } = useURL();
 
 	const getData = async () => {
 		try {
-			const { data } = await axios.get(url);
+			const { data } = await axios.get(currentURL);
 			setPokemonData(data);
 		} catch(error) {
 			alert(error.message);
