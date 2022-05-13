@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import { colors } from './styles/theme/colors';
 
 import { Routes } from './routes';
+import { URLContext } from './context/url.context';
 
-import { StyledSafeAreaView, TopBar, AppName, TitleBar, Title } from './styles/Theme';
+import { StyledSafeAreaView } from './styles/Theme';
 
 const App = () => {
+	const [ currentURL, setCurrentURL ] = useState('https://pokeapi.co/api/v2/pokemon/1/');
+
 	return (
-		<>
+		<URLContext.Provider value={{ currentURL, setCurrentURL }}>
 			<StatusBar backgroundColor={colors.complementary} />
 			<StyledSafeAreaView>
-				<TopBar>
-					<AppName>PokeDev</AppName>
-				</TopBar>
-				<TitleBar>
-					<Title>Lista de Pokémons</Title>
-				</TitleBar>
 				<Routes />
 			</StyledSafeAreaView>
-		</>
+		</URLContext.Provider>
 	);
 };
 
