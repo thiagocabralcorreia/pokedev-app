@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import Feather from 'react-native-vector-icons/Feather';
 import { colors } from '../../styles/theme/colors';

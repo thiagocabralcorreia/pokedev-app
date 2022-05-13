@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-	flex: 1;
+export const LoadingWrapper = styled.View`
+	width: 100%;
+	margin: 16px auto;
 	align-items: center;
 	justify-content: center;
-	padding: 13px 20px 0;
 `;

@@ -45,7 +45,7 @@ export const AbilityName = styled.Text`
 `;
 
 export const Span = styled.Text`
-	font-family: ${txt.fontFamily.default};
+	font-family: ${txt.fontFamily.special};
 	font-size: ${txt.size.regular};
 	color: ${colors.black};
 `;
