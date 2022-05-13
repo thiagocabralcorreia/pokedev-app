@@ -1,8 +1,8 @@
 
 export const txt = {
 	fontFamily: {
-		default: 'Baskerville',
-		special: 'Arial',
+		default: 'Poppins-ExtraBold',
+		special: 'Poppins-Regular',
 	},
 	size: {
 		extraSmall: '12px',

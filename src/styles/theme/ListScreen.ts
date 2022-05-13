@@ -23,6 +23,7 @@ export const Item = styled.TouchableOpacity`
 `;
 
 export const Name = styled.Text`
+	font-family: ${txt.fontFamily.default};
 	font-size: ${txt.size.regular}
 	color: ${colors.dark};
 `;

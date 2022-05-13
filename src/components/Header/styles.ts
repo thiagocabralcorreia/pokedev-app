@@ -13,7 +13,8 @@ export const AppBar = styled.View`
 `;
 
 export const AppName = styled.Text`
-	font-size: ${txt.size.big}
+	font-family: ${txt.fontFamily.default};
+	font-size: ${txt.size.big};
 	color: ${colors.light};
 `;
 
@@ -32,6 +33,7 @@ export const TitleBar = styled.View`
 `;
 
 export const ScreenTitle = styled.Text`
-	font-size: ${txt.size.regular}
+	font-family: ${txt.fontFamily.default};
+	font-size: ${txt.size.regular};
 	color: ${colors.light};
 `;

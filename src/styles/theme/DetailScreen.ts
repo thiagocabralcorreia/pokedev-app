@@ -25,23 +25,27 @@ export const Sprite = styled.Image`
 
 
 export const Title = styled.Text`
+	font-family: ${txt.fontFamily.special};
 	font-size: ${txt.size.extraSmall};
 	margin-bottom: 6px;
 	color: ${colors.grey.dark};
 `;
 
 export const Name = styled.Text`
+	font-family: ${txt.fontFamily.default};
 	font-size: ${txt.size.extraBig};
 	color: ${colors.black};
 `;
 
 export const AbilityName = styled.Text`
+	font-family: ${txt.fontFamily.default};
 	font-size: ${txt.size.regular};
 	color: ${colors.black};
 	margin-bottom: 2px;
 `;
 
 export const Span = styled.Text`
+	font-family: ${txt.fontFamily.default};
 	font-size: ${txt.size.regular};
 	color: ${colors.black};
 `;
@@ -58,11 +62,12 @@ export const Row = styled.View`
 export const Retangle = styled.View`
 	border-radius: 5px;
 	background-color: ${colors.grey.light};
-	padding: 5px 12px;
+	padding: 2px 12px;
 	margin: 0 6px 14px 0;
 `;
 
 export const MoveName = styled.Text`
+	font-family: ${txt.fontFamily.default};
 	font-size: ${txt.size.regular};
 	color: ${colors.black};
 `;
